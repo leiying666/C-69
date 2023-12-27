@@ -1,0 +1,33 @@
+#include<stdio.h>
+
+void Paixu(int a[],int c)
+{
+	for (int i = 0; i < c-1; i++)
+	{
+		for (int j = 0; j < c-i-1; j++)
+		{
+			if (a[j] > a[j + 1])
+			{
+				int tmp = a[j + 1];
+				a[j + 1] = a[j];
+				a[j] = tmp;
+			}
+		}
+	}
+}
+int main()
+{
+	int a[10];
+	int i;
+	for (i = 0; i < 10; i++)
+	{
+		scanf("%d", &a[i]);
+	}
+	int sz = sizeof(a) / sizeof(a[0]);
+	Paixu(a,sz);
+	for (int j = 0; j < 10; j++)
+	{
+		printf("%d\n", a[j]);
+	}
+	return 0;
+}
